@@ -1,14 +1,20 @@
-'use strict';
+var app = angular.module('myApp',[]);
 
-// Declare app level module which depends on views, and components
-angular.module('myApp', [
-  'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
-]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
+app.controller ('dataController',function ($scope,$http) {
 
-  $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+  	$scope.sortingOrder = '';
+    $scope.reverse = false;
+    var url = "http://jsonplaceholder.typicode.com/posts";
+    //get the data from server
+    $http.get(url).then( function(response) {
+       $scope.tableData = response.data;
+    });
+
+    //function to sort
+    $scope.sort_table = function(newSortingOrder) {
+        if (newSortingOrder){
+            $scope.reverse = !$scope.reverse;
+        }
+        $scope.sortingOrder = newSortingOrder;
+    };
+});

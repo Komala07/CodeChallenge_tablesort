@@ -1,25 +1,13 @@
-/* app css stylesheet */
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+table, th , td {
+	border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+}
+.setHead{
+	color: blue;
+	background-color: thistle;
 }
 
-.menu:before {
-  content: "[";
-}
-
-.menu:after {
-  content: "]";
-}
-
-.menu > li {
-  display: inline;
-}
-
-.menu > li + li:before {
-  content: "|";
-  padding-right: 0.3em;
+h3{
+	color: indianred;
 }
